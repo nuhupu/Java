@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h2 style="color: green">List CELL PHONE</h2>
+        <h:form>
+            <h:dataTable value="#{cellBean.showAll()}" var="items"
+                         border="1" width="600px">
+                <h:column>                
+                    <f:facet name="header">Cellphone Id</f:facet>
+                        #{items.proId}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">CellPhone</f:facet>
+                        #{items.proName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                        #{items.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandLink value="Delete" action="delete(#{items.proId})"></h:commandLink>
+                </h:column>
+            </h:dataTable>     
+        </h:form>
+
+
+    </h:body>
+</html>
+

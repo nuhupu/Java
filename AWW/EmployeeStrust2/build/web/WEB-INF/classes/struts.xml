@@ -1,0 +1,25 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>   
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="login" class="model.LoginAction">
+            <result name="success" type="chain">show</result>
+            <result name="error">Login.jsp</result>
+        </action>
+        <action name="insert" class="model.InsertAction">
+            <result name="input">insert.jsp</result>
+            <result name="success" type ="chain">show</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="show" class ="model.ShowAction">
+            <result name="success">viewAll.jsp</result>
+        </action>
+        <action name="delete" class="model.DeleteAction">
+            <result name="success" type="chain">show</result>
+            <result name="error">error.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2 style="color: red" >
+                Insert new Student
+            </h2>
+            <h:panelGrid columns="2">
+                <h:outputText value ="Student ID"/>
+                <h:inputText id="id" label="StudentID" value="#{st.id}"/>
+                <h:outputText value ="Password"/>
+                <h:inputText id="password"  value="#{st.password}"/>
+                <h:outputText value ="Student Name"/>
+                <h:inputText id="studentname"  value="#{st.studentname}"/>
+                <h:outputText value ="Student Age"/>
+                <h:inputText id="age"  value="#{st.age}"/>
+                
+            </h:panelGrid>
+            <h:commandButton value="Insert" action="#{st.insert()}"/>
+        </h:form>
+    </h:body>
+</html>
+

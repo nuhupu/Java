@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <center>
+            <h2 style="color:green;">
+                <h:outputLabel value="Insert new customers"/>
+            </h2>
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputText value="Customer ID"/>
+                    <h:inputText id="custID" required="true"
+                                 value="#{customerBean.custID}"
+                                 requiredMessage="Customer ID is required"
+                                 validatorMessage="First a letter and 4 digit"
+                                 >
+                    <f:validateRegex pattern="[A-Za-z][0-9]{4}"  />
+                    </h:inputText>
+                      
+                    <h:message for="custID" style="color: red"/>
+                    
+                    <h:outputText value="Customer Name"/>
+                    <h:inputText id="custName" required="true"
+                                 value="#{customerBean.custName}"
+                                 requiredMessage="Customer Name is required"/>
+                    <h:message for="custName" style="color: red"/>
+                    
+                    <h:outputText value="Password"/>
+                    <h:inputSecret id="password" required="true"
+                                   value="#{customerBean.password}"
+                                   requiredMessage="Password is required"
+                                   validatorMessage="Password must between 4 and 10 charater">
+                        <f:validateLength minimum="4" maximum="10" />
+                    </h:inputSecret>
+                    <h:message for="password" style="color: red"/>
+
+                    <h:outputText value="Age"/>
+                    <h:inputText id="age" required="true"
+                                 value="#{customerBean.age}"
+                                 requiredMessage="Age is required"
+                                 validatorMessage="Age between 18 and 60">
+                        <f:validateLongRange minimum="18" maximum="60"/>           
+                    </h:inputText>
+                    <h:message for="age" style="color: red"/>
+                                        
+                    <h:outputText value="Address"/>
+                    <h:inputText id="address" required="true"
+                                 value="#{customerBean.address}"
+                                 requiredMessage="Address is required"/>
+                    <h:message for="address" style="color: red"/>
+                </h:panelGrid>
+                <h:commandButton value="Insert" action="#{customerBean.insert()}"/>
+                <input type="reset" value="Reset"/>
+
+
+            </h:form>
+        </center>
+    </h:body>
+</html>
+

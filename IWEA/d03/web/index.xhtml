@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+
+    <h:body>        
+        <f:view>
+            <h:form>
+                <h:outputLabel value="Name" for="name"/>
+                <h:selectOneMenu id="prefix" value="#{mb.prefix}">
+                    <f:selectItem itemLabel="Mr." itemValue="Mr"/>
+                    <f:selectItem itemLabel="Mrs." itemValue="Mrs"/>
+                    <f:selectItem itemLabel="Ms." itemValue="Ms"/>
+                </h:selectOneMenu>
+                <h:inputText id="name" label="Name" required="true"
+                             value="#{mb.name}"></h:inputText>
+                <h:message for="name"/>
+                <p></p>
+                <h:outputLabel value="Age" for="age"/>
+                <h:inputText id="age" label="Age" required="true"
+                             value="#{mb.age}"></h:inputText>
+                <h:message for="age"/>
+                <p></p>
+                <h:outputLabel value="Phone" for="phone"/>
+                <h:inputText id="phone" label="Phone" required="true"
+                             value="#{mb.phone}"></h:inputText>
+                <h:message for="phone"/>
+                <p></p> 
+                <h:commandButton id="register" value="Register" action="confirm" /> 
+            </h:form>
+        </f:view>    
+    </h:body>
+</html>
+

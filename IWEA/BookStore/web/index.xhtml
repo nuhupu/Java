@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title> 
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <h1 style="color: purple">
+                <h:outputLabel value="List All Book"/>
+                <p></p>              
+                <h:commandLink value="Insert Book" action="insert.xhtml" immediate="true"/>
+            </h1>
+            <p></p>
+            <table>
+                <tr>
+                    <td>
+                        From
+                    </td>
+                    <td>
+                        <h:inputText value="#{bookBean.from}"></h:inputText>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        To
+                    </td>
+                    <td>
+                        <h:inputText value="#{bookBean.to}"></h:inputText>
+                    </td>
+                </tr>
+            </table>
+            <h:commandButton value="Search" action="#{bookBean.search()}" />
+            <h:dataTable value="#{bookBean.showAll()}" var="items"
+                         border="1" width="600px" id="tbl">
+                
+                <h:column>
+                    <f:facet name="header">
+                     Book Code
+                    </f:facet>
+                    #{items.bookCode}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                       Title
+                    </f:facet>
+                  #{items.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                       Price
+                    </f:facet>
+                 #{items.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                   
+                    <h:commandLink value="Delete" action="#{bookBean.delete(items.bookCode)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+            
+             <h:dataTable value="#{bookBean.result}" var="items"
+                         border="1" width="600px">
+                
+                <h:column>
+                    <f:facet name="header">
+                     Book Code
+                    </f:facet>
+                    #{items.bookCode}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                       Title
+                    </f:facet>
+                  #{items.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                       Price
+                    </f:facet>
+                 #{items.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                   
+                    <h:commandLink value="Delete" action="#{bookBean.delete(items.bookCode)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>

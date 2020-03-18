@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1 style="color: purple">
+                <h:outputLabel value="List All Student"/>
+                <p></p>              
+                <h:commandLink value="Insert Student" action="insert.xhtml" immediate="true"/>
+            </h1>
+            <p></p>
+            <h:dataTable value="#{st.showAll()}" var="items"
+                         border="1" width="600px">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="StudentID"/>
+                    </f:facet>
+                    <h:outputText value="#{items.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Name"/>
+                    </f:facet>
+                    <h:outputText value="#{items.studentname}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Age"/>
+                    </f:facet>
+                    <h:outputText value="#{items.age}"/>
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+    </h:body>
+</html>
+
